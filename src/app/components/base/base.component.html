@@ -1,0 +1,6 @@
+<h2 class="d-none d-md-block">Notable Movies by Year - track which movies you've seen</h2>
+<label for="year">Select Year: </label><select class="form-control year-select" id="year" [(ngModel)]="year"
+                                               (change)="changeYear($event, year.id)" required>
+  <option *ngFor="let year of years" [ngValue]="year">{{year.id}}</option>
+</select>
+<app-movie-table [movies]="movies.list" *ngIf="movies"></app-movie-table>

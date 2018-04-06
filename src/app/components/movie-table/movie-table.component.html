@@ -1,0 +1,20 @@
+<table class="table">
+  <tr>
+    <th>seen</th>
+    <th>name</th>
+    <th><span class="normal-screen-rank-text">box office rank</span><span class="small-screen-rank-text">rank</span></th>
+    <th>awards</th>
+  </tr>
+  <tr *ngFor="let movie of movies">
+    <td><input type="checkbox" (click)="toggleSeen(movie)" [checked]="movie.seen"/></td>
+    <td>
+      <a target="_blank" href="http://www.google.com/search?q={{movie.name}}">{{movie.name}}</a>
+    </td>
+    <td>
+      <span *ngIf="movie.boxOfficeRank !== 101">{{movie.boxOfficeRank}}</span><span *ngIf="movie.boxOfficeRank === 101">Not Ranked</span>
+    </td>
+    <td>
+      {{movie.awards}}
+    </td>
+  </tr>
+</table>
